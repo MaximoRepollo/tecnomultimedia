@@ -30,7 +30,9 @@ void setup(){
   line(110,420,100,310);
   line(100,310,130,205);
   popStyle();
-  
+ 
+ //La parte mas importante,los 12 colores del circulo cromatico.
+ 
   //rojo
   pushStyle();
   noStroke();
@@ -157,7 +159,8 @@ if(mouseX >=58 && mouseX <=139 && mouseY >=268 && mouseY <=348){
   noStroke();
   circle(300,300,250);
   
-  //Agregando texto
+  //Agregando texto de los 3 colores primarios y los 3 secundarios.Para que se muestre,hay que pasar el cursor por encima del color correspondiente.
+  
 if(mouseX >= 237 && mouseX <= 356 && mouseY <= 130 && mouseY >=8){
   pushStyle();
   fill(255);

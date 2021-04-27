@@ -1,4 +1,4 @@
-//Tp 1 Maximo Repollo Circulo Cromatico
+//Tp 1 Maximo Repollo Circulo Cromatico RGB
 
 
 //declaramos las variables para el final

@@ -1,4 +1,4 @@
-
+//tp3 Maximo Repollo
 //Declaracion de variables
 float contador,cant;
 color col;

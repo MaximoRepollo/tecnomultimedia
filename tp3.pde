@@ -1,4 +1,5 @@
 //tp3 Maximo Repollo
+//Link al video de youtube: https://youtu.be/8SWYnIx4h8Q
 //Declaracion de variables
 float contador,cant;
 color col;

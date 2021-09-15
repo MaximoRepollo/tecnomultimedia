@@ -1,12 +1,30 @@
-float pantalla = 0;
-PImage [] img = new PImage [23];
+//Declaracion de variables y arreglos.
+
+float pantalla, Xt = 0;
+float yt = 600;
+float yt1 = 800;
+float yt2 = 1000;
+float yt3 = 1200;
+float yt4 = 1400;
+float yt5 = 1600;
+float yt6 = 1800;
+float yt7 = 2000;
+float yt8 = 2200;
+float yt9 = 2400;
+PFont nfuente;
+PImage [] img = new PImage [24];
 String[] hist = new String[30];
 String[] opc = new String[20];
 String[] finales = new String[10];
+String[] creditos = new String[10];
 
 
 void setup(){
   size(600,600);
+  //Cargar fuente
+  nfuente = loadFont("Cambria-48.vlw");
+  
+  //Arreglo de opciones
   opc[0] = "La gran aventura de Chomp";
   opc[1]= "Iniciar";
   opc[2]="Creditos";
@@ -22,7 +40,7 @@ void setup(){
   opc[12]="Ir hacia\n la derecha";
   opc[13]="Persuadir";
   opc[14]="Huir";
-  
+  //Arreglo de texto de historia.
   hist[0] = "Chomp se despierta muy temprano por la mañana\nlisto para un productivo dia.";
   hist[1] ="Chomp deberia salir de su habitacion?";
   hist[2] = "Chomp va hacia el comedor para desayunar\n pero se encuentra con algo terrible...";
@@ -43,7 +61,7 @@ void setup(){
   hist[17]="Chomp sigue su camino\n pero siente un mal presentimiento\nQue deberia hacer Chomp?";
   hist[18]="Chomp decide saquear\n pero en eso unos guardias le descubren\nQue deberia hacer Chomp?";
   
-  
+  //Arreglo de finales
   finales[0] = "Final vago:\nChomp se queda en la habitacion\n y no pasa nada.";
   finales [1] = "Final muerto: \n Chomp se cae por un barranco\n y muere.";
   finales[2]= "Final verdadero:\n Chomp salva a Nikel y se\n quedan para siempre\n en Sovngarde";
@@ -53,6 +71,7 @@ void setup(){
   finales[6]="Final muerto:\n Chomp trata de luchar pero los bandidos\n lo apalizan.";
   finales[7]="Final muerto:\n Chomp toma el arco,pero no flechas, por\n lo que es aniquilado.";
 
+  //Arreglo de imagenes.
   img [0]= loadImage("Chomp1.jpg");
   img [1]= loadImage("Chomp2.jpg");
   img [2]= loadImage("Chomp3.jpg");
@@ -76,169 +95,230 @@ void setup(){
   img [20]= loadImage("Chomp21.png");
   img [21]= loadImage("Chomp22.jpg");
   img [22]= loadImage("skyrim-1.jpg");
+  img [23]= loadImage("logo600.jpg");
+  
+  //Arreglo de creditos
+  creditos[0]= "Productor:\n Maximo Repollo";
+  creditos [1]= "Chomp:\nChomp";
+  creditos [2]= "Miraak:\n Nicolas Cage";
+  creditos [3]= "Nikel:\n Guillermo\nFrancella";
+  creditos [4]= "Guardias:\nDwayne\nJhonson";
+  creditos [5]= "Ciudadano:\n Jason\n Momoa";
+  creditos [6]= "Profesor:\n David Bedoian";
+  creditos [7]= "Materia:\n Tecno Multimedia";
+  creditos [8]= "Agradecimientos a:\n Bethesda Softworks";
 }
 
 void draw(){
   background(255);
+  
+  //Dibujar de acuerdo al valor de la variable pantalla.
   if ( pantalla == 0){
     image(img[22],0,0,600,600);
-    texto(opc[0], width/2,100,40,CENTER,color(100,20,0));
-    dibujaBotonCircular(opc[1],450,500,150);
-    dibujaBotonCircular(opc[2],150,500,150);
+    texto(opc[0], width/2,100,50,CENTER,color(100,20,0),nfuente);
+    dibujaBotonCircular(opc[1],450,500,150,color(0,0,200));
+    dibujaBotonCircular(opc[2],150,500,150,color(0,0,200));
   }
+  //Cambiar de acuerdo al valor de pantalla indicado
   else if(pantalla == 1){
     image(img[0],0,0,600,600);
-    texto(hist[0], width/2,50,24,CENTER,color(0,0,255));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(hist[0], width/2,50,24,CENTER,color(0,0,255),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla == 2){
      image(img[0],0,0,600,600);
-     texto(hist[1], width/2,50,28,CENTER,color(0,0,255));
-     dibujaBotonCircular("Si",450,500,100);
-     dibujaBotonCircular("No",150,500,100);
+     texto(hist[1], width/2,50,28,CENTER,color(0,0,255),nfuente);
+     dibujaBotonCircular("Si",450,500,100,color(0,0,200));
+     dibujaBotonCircular("No",150,500,100,color(0,0,200));
   }
   else if(pantalla == 3){
     image(img[1],0,0,600,600);
-    texto(hist[2],width/2,20,28,CENTER,color(255));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(hist[2],width/2,20,28,CENTER,color(255),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
    
   }
   else if(pantalla == 4){
     image(img[21],0,0,600,600);
-    texto(finales[0],width/2,60,28,CENTER,color(255,0,0));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(finales[0],width/2,60,28,CENTER,color(255,0,0),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla== 5){
     image(img[1],0,0,600,600);
-    texto(hist[3],width/2,20,28,CENTER,color(255));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(hist[3],width/2,20,28,CENTER,color(255),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==6){
     image(img[3],0,0,600,600);
-    texto(hist[4],width/2,50,28,CENTER,color(200,0,0));
-    dibujaBotonCircular("Derecha",450,500,200);
-     dibujaBotonCircular("Izquierda",150,500,200);
+    texto(hist[4],width/2,50,28,CENTER,color(200,0,0),nfuente);
+    dibujaBotonCircular("Derecha",450,500,200,color(0,0,200));
+     dibujaBotonCircular("Izquierda",150,500,200,color(0,0,200));
   }
   else if(pantalla==7){
     image(img[5],0,0,600,600);
-     texto(hist[5],width/2,20,28,CENTER,color(255,0,0));
-     dibujaBotonCircular("Continuar",width/2,500,200);
+     texto(hist[5],width/2,20,28,CENTER,color(255,0,0),nfuente);
+     dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
     
   }
   else if(pantalla==8){
     image(img[5],0,0,600,600);
-    texto(hist[6],width/2,50,30,CENTER,color(255,0,0));
-    dibujaBotonCircular(opc[3],450,500,220);
-     dibujaBotonCircular(opc[4],150,500,220);    
+    texto(hist[6],width/2,50,30,CENTER,color(255,0,0),nfuente);
+    dibujaBotonCircular(opc[3],450,500,220,color(0,0,200));
+     dibujaBotonCircular(opc[4],150,500,220,color(0,0,200));    
   }
   else if(pantalla==9){
     image(img[6],0,0,600,600);
-     texto(hist[7],width/2,30,30,CENTER,color(255,0,0));
-     dibujaBotonCircular("Continuar",width/2,500,200);
+     texto(hist[7],width/2,30,30,CENTER,color(255,0,0),nfuente);
+     dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==10){
     image(img[6],0,0,600,600);
-    texto(hist[8],width/2,20,30,CENTER,color(255,0,0));
-     dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(hist[8],width/2,20,30,CENTER,color(255,0,0),nfuente);
+     dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==11){
     image(img[7],0,0,600,600);
-    texto(hist[9],width/2,40,30,CENTER,color(255));
-    dibujaBotonCircular(opc[5],450,500,180);
-     dibujaBotonCircular(opc[6],150,500,180);   
+    texto(hist[9],width/2,40,30,CENTER,color(255),nfuente);
+    dibujaBotonCircular(opc[5],450,500,180,color(0,0,200));
+     dibujaBotonCircular(opc[6],150,500,180,color(0,0,200));   
   }
   else if(pantalla==12){
     image(img[8],0,0,600,600);
-    texto(hist[10],width/2,40,30,CENTER,color(100,0,0));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(hist[10],width/2,40,30,CENTER,color(100,0,0),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==13){
     image(img[9],0,0,600,600);
-    texto(hist[11],width/2,40,30,CENTER,color(255));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(hist[11],width/2,40,30,CENTER,color(255),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==14){
     image(img[10],0,0,600,600);
-    texto(hist[12],width/2,40,30,CENTER,color(255));
-    dibujaBotonCircular(opc[7],450,500,180);
-     dibujaBotonCircular(opc[8],150,500,180); 
+    texto(hist[12],width/2,40,30,CENTER,color(255),nfuente);
+    dibujaBotonCircular(opc[7],450,500,180,color(0,0,200));
+     dibujaBotonCircular(opc[8],150,500,180,color(0,0,200)); 
   }
   else if(pantalla==15){
     image(img[11],0,0,600,600);
-    texto(hist[13],width/2,40,30,CENTER,color(255));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(hist[13],width/2,40,30,CENTER,color(255),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==16){
     image(img[12],0,0,600,600);
-    texto(hist[14],width/2,40,30,CENTER,color(255));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(hist[14],width/2,40,30,CENTER,color(255),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==17){
     image(img[12],0,0,600,600);
-    texto(hist[15],width/2,40,30,CENTER,color(255));
-    dibujaBotonCircular(opc[9],450,500,180);
-     dibujaBotonCircular(opc[10],150,500,180); 
+    texto(hist[15],width/2,40,30,CENTER,color(255),nfuente);
+    dibujaBotonCircular(opc[9],450,500,180,color(0,0,200));
+     dibujaBotonCircular(opc[10],150,500,180,color(0,0,200)); 
   }
   else if(pantalla==18){
     image(img[13],0,0,600,600);
-    texto(hist[16],width/2,40,30,CENTER,color(255));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(hist[16],width/2,40,30,CENTER,color(255),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==19){
     image(img[13],0,0,600,600);
-    texto(finales[2],width/2,40,30,CENTER,color(0,255,0));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(finales[2],width/2,40,30,CENTER,color(0,255,0),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==20){
     image(img[14],0,0,600,600);
-    texto(finales[3],width/2,40,30,CENTER,color(255,0,255));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(finales[3],width/2,40,30,CENTER,color(255,0,255),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==21){
     image(img[4],0,0,600,600);
-    texto(hist[17],width/2,40,30,CENTER,color(100,0,0));
-     dibujaBotonCircular(opc[11],450,500,200);
-     dibujaBotonCircular(opc[12],150,500,200);
+    texto(hist[17],width/2,40,30,CENTER,color(100,0,0),nfuente);
+     dibujaBotonCircular(opc[11],450,500,200,color(0,0,200));
+     dibujaBotonCircular(opc[12],150,500,200,color(0,0,200));
   }
   else if(pantalla==22){
     image(img[18],0,0,600,600);
-    texto(finales[1],width/2,40,30,CENTER,color(255,0,0));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(finales[1],width/2,40,30,CENTER,color(255,0,0),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==23){
     image(img[15],0,0,600,600);
-    texto(hist[18],width/2,40,30,CENTER,color(255,0,0));
-    dibujaBotonCircular(opc[13],450,500,200);
-     dibujaBotonCircular(opc[14],150,500,200);
+    texto(hist[18],width/2,40,30,CENTER,color(255,0,0),nfuente);
+    dibujaBotonCircular(opc[13],450,500,200,color(0,0,200));
+     dibujaBotonCircular(opc[14],150,500,200,color(0,0,200));
   }
   else if(pantalla==24){
     image(img[16],0,0,600,600);
-    texto(finales[4],width/2,40,30,CENTER,color(255,0,255));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(finales[4],width/2,40,30,CENTER,color(255,0,255),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==25){
     image(img[17],0,0,600,600);
-    texto(finales[5],width/2,40,30,CENTER,color(255,0,0));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(finales[5],width/2,40,30,CENTER,color(255,0,0),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==26){
     image(img[19],0,0,600,600);
-    texto(finales[6],width/2,40,30,CENTER,color(255,0,0));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(finales[6],width/2,40,30,CENTER,color(255,0,0),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
   }
   else if(pantalla==27){
     image(img[20],0,0,600,600);
-    texto(finales[7],width/2,40,30,CENTER,color(255));
-    dibujaBotonCircular("Continuar",width/2,500,200);
+    texto(finales[7],width/2,40,30,CENTER,color(255),nfuente);
+    dibujaBotonCircular("Continuar",width/2,500,200,color(0,0,200));
+  }
+  //Pantalla de creditos.
+  else if(pantalla==28){
+    //Cargar el fondo y los arreglos de creditos.
+    image(img[23],0,0,600,600);
+    texto(creditos[0],width/2,yt,30,CENTER,color(255),nfuente);
+    texto(creditos[1],width/2,yt1,30,CENTER,color(255),nfuente);
+    texto(creditos[2],width/2,yt2,30,CENTER,color(255),nfuente);
+    texto(creditos[3],width/2,yt3,30,CENTER,color(255),nfuente);
+    texto(creditos[4],width/2,yt4,30,CENTER,color(255),nfuente);
+    texto(creditos[5],width/2,yt5,30,CENTER,color(255),nfuente);
+    texto(creditos[6],width/2,yt6,30,CENTER,color(255),nfuente);
+    texto(creditos[7],width/2,yt7,30,CENTER,color(255),nfuente); 
+    texto(creditos[8],width/2,yt8,30,CENTER,color(255),nfuente);
+    //Restar a la variable de la posicion del texto para que se muevan.
+    yt-= 0.50;
+    yt1-= 0.50;
+    yt2-= 0.50;
+    yt3-= 0.50;
+    yt4-= 0.50;
+    yt5-= 0.50;
+    yt6-= 0.50;
+    yt7-= 0.50;
+    yt8-= 0.50;
+    if (yt8==0){
+      pantalla=0;
+    }
+    //Reestablecer el valor de las variables cuando se vuelva a la pantalla 0.
+    if (pantalla==0){
+       yt = 600;
+       yt1 = 800;
+       yt2 = 1000;
+       yt3 = 1200;
+       yt4 = 1400;
+       yt5 = 1600;
+       yt6 = 1800;
+       yt7 = 2000;
+       yt8 = 2200;
+       yt9 = 2400;
+    }
+    
   }
 }
 
 void mousePressed(){
+  
+  //Colisiones cuando el mouse esta presionado en las coordenadas especificadas en la funcion de colision.
   if(pantalla==0){
     
     if (colisionSupCircular(mouseX,mouseY,500,500,80)){
       pantalla = 1;
   }
+    else if (colisionSupCircular(mouseX,mouseY,150,500,80)){
+      pantalla = 28;
+    }
   }
   else if(pantalla==1){
       if (colisionSupCircular(mouseX,mouseY,width/2,500,200)){

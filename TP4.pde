@@ -1,3 +1,5 @@
+//tp4 Maximo Repollo
+//Link a Youtube: https://youtu.be/L57hgdSAuwY
 //Declaracion de variables y arreglos.
 
 float pantalla, Xt = 0;

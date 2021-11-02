@@ -1,3 +1,4 @@
+//Maximo Repollo TP5
 int cantb, pantalla;
 PImage [] img = new PImage [10];
 boolean DEBUG = true;

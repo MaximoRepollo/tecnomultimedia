@@ -1,5 +1,5 @@
 //TP5 Maximo Repollo
-
+//Link al video explicación: https://youtu.be/rr4tYAsB6j0
 //inicializar variables.
 //arreglo de imagenes para los fondos.
 PImage [] img = new PImage [10];

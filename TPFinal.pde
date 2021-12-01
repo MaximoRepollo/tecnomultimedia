@@ -1,3 +1,5 @@
+//Maximo Repollo TecnoMultimedia1 TP Final
+// Link a explicacion del codigo: https://youtu.be/hZLj5bJnOw0
 Aventura aventura;
 Juego juego;
 
